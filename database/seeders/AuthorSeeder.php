@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\Author;
+use App\Models\Book;
 
 class AuthorSeeder extends Seeder
 {
@@ -16,6 +17,6 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        Author::factory()->count(3)->create();
+        Author::factory()->hasBooks(3)->count(3)->create();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Author;
 class Book extends Model
 {
     use HasFactory;
@@ -17,4 +18,12 @@ class Book extends Model
         'quantity' => false,
         'price' => false,
     ];
+
+    /**
+     * Get the author for the book
+     */
+    public function author()
+    {
+        return $this->hasOne(Author::class);
+    }
 }
