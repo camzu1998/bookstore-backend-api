@@ -20,4 +20,5 @@ Route::get('/books/{author_id}', [BookController::class, 'get_author']);
 Route::get('/book/{book_id}', [BookController::class, 'get']);
 
 Route::get('/cart/{cart_token}', [CartController::class, 'get']);
+Route::post('/cart', [CartController::class, 'add']);
 Route::post('/cart/{cart_token}', [CartController::class, 'add']);
