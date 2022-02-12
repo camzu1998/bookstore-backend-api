@@ -15,7 +15,7 @@ class CartController extends Controller
             return response()->json();
 
 
-        $cart_products = CartProduct::CartID($cart->id)->get();
+        $cart_products = CartProduct::select('books.name as book_name', 'books.price', 'cart_products.*', 'authors.name as author_name')->CartID($cart->id)->rightJoin('books', 'books.id', '=', 'cart_products.book_id')->rightJoin('authors', 'authors.id', '=', 'books.author_id')->get();
         return response()->json([
             'cart'          => $cart,
             'cart_products' => $cart_products
