@@ -18,6 +18,6 @@ class BookController extends Controller
     }
 
     public function get_author(Request $request, int $author_id){
-        return Book::select('books.*', 'authors.name as author_name')->rightJoin('authors', 'authors.id', '=', 'books.author_id')->where('books.author_id', $author_id)->first();
+        return Book::select('books.*', 'authors.name as author_name')->rightJoin('authors', 'authors.id', '=', 'books.author_id')->where('books.author_id', $author_id)->get();
     }
 }
