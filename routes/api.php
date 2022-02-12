@@ -15,9 +15,9 @@ use App\Http\Controllers\CartController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/books', []);
-Route::get('/books/{author_id}', []);
-Route::get('/book/{book_id}', []);
+Route::get('/books', [BookController::class, 'get_all']);
+Route::get('/books/{author_id}', [BookController::class, 'get_author']);
+Route::get('/book/{book_id}', [BookController::class, 'get']);
 
-Route::get('/cart/{cart_token}', []);
-Route::post('/cart/{cart_token}', []);
+Route::get('/cart/{cart_token}', [CartController::class, 'get']);
+Route::post('/cart/{cart_token}', [CartController::class, 'add']);

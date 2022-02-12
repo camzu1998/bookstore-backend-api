@@ -20,6 +20,18 @@ class Book extends Model
     ];
 
     /**
+     * Scope a query to only include books of defined author
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  int  $author_id
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthor($query, int $author_id)
+    {
+        return $query->where('author_id', $author_id);
+    }
+
+    /**
      * Get the author for the book
      */
     public function author()
