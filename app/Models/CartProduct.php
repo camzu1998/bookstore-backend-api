@@ -20,6 +20,18 @@ class CartProduct extends Model
     ];
 
     /**
+     * Scope a query to only include cart who has cart_token equals $token
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  int  $cart_id
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCartID($query, string $cart_id)
+    {
+        return $query->where('cart_id', $cart_id);
+    }
+
+    /**
      * Get the cart for the cart products
      */
     public function cart()

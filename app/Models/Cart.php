@@ -20,6 +20,18 @@ class Cart extends Model
     ];
 
     /**
+     * Scope a query to only include cart who has cart_token equals $token
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $token
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCartToken($query, string $token)
+    {
+        return $query->where('cart_token', 'LIKE', $token);
+    }
+
+    /**
      * Get the books for the book author.
      */
     public function cartProducts()
