@@ -23,7 +23,7 @@ class BookFactory extends Factory
         return [
             'author_id' => false,
             'name' => $this->faker->sentence(2),
-            'type' => "both", //both, pdf, book
+            'type' => "both", //both, pdf
             'quantity' => $this->faker->randomNumber(3, false),
             'price' => $this->faker->randomFloat(2, 10, 500),
             'created_at' => now(),

@@ -24,7 +24,7 @@ class CartSeeder extends Seeder
             $book = Book::factory([
                 'author_id' => $author->id
             ])->create();
-            return ['book_id' => $book->id, 'price' => $book->price];
+            return ['book_id' => $book->id, 'price' => $book->price, 'type' => $book->type];
         })->count(3)->create();
     }
 }
