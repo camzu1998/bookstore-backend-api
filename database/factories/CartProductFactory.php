@@ -19,6 +19,7 @@ class CartProductFactory extends Factory
         return [
             'cart_id' => false,
             'book_id' => false,
+            'quantity'=> 1,
             'type' => false,
             'price' => false,
             'created_at' => now(),

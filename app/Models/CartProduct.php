@@ -15,6 +15,7 @@ class CartProduct extends Model
     protected $attributes = [
         'cart_id' => false,
         'book_id' => false,
+        'quantity'=> 1,
         'type' => false,
         'price' => false,
     ];
@@ -26,9 +27,23 @@ class CartProduct extends Model
      * @param  int  $cart_id
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeCartID($query, string $cart_id)
+    public function scopeCartID($query, int $cart_id)
     {
         return $query->where('cart_id', $cart_id);
+    }
+
+    /**
+     * Scope a query to only include defined cart product
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  int  $cart_id
+     * @param  int  $book_id
+     * @param  string  $type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCartProduct($query, int $cart_id, int $book_id, string $type)
+    {
+        return $query->where('cart_id', $cart_id)->where('book_id', $book_id)->where('type', $type);
     }
 
     /**

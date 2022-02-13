@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('cart_id');
             $table->integer('book_id');
+            $table->integer('quantity')->default(1);
             $table->string('type');
             $table->float('price', 8, 2);
             $table->timestamps();
