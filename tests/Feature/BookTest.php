@@ -14,7 +14,7 @@ class BookTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_access_all_books_route()
+    public function test_get_all_books_route()
     {
         $author = Author::factory()->hasBooks(1)->create();
 
@@ -23,7 +23,7 @@ class BookTest extends TestCase
         $response->assertJsonFragment(['author_id' => $author->id]);
     }
 
-    public function test_access_author_route()
+    public function test_get_author_books_route()
     {
         $author = Author::factory()->hasBooks(1)->create();
 
@@ -32,7 +32,7 @@ class BookTest extends TestCase
         $response->assertJsonFragment(['author_id' => $author->id]);
     }
 
-    public function test_access_book_route()
+    public function test_get_book_route()
     {
         $author = Author::factory()->hasBooks(1)->create();
         $book = Book::BAuthor($author->id)->first();
