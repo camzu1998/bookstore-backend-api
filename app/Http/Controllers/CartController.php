@@ -10,9 +10,10 @@ use App\Models\CartProduct;
 
 class CartController extends Controller
 {
-    public function get(Request $request, string $token)
+    public function get(Request $request)
     {
-        $cart = Cart::CartToken($token)->first();
+        $cart = Cart::CartToken($request->cart_token)->first();
+
         if(empty($cart->id))
             return response()->json();
 
@@ -26,7 +27,8 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        $cart = Cart::CartToken($request->cart_token)->first();
+        if(!empty($request->cart_token))
+            $cart = Cart::CartToken($request->cart_token)->first();
         
         if(empty($cart->id))
             $cart = Cart::factory()->create();
