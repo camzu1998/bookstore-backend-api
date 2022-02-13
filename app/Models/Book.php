@@ -26,7 +26,7 @@ class Book extends Model
      * @param  int  $author_id
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeAuthor($query, int $author_id)
+    public function scopeBAuthor($query, int $author_id)
     {
         return $query->where('author_id', $author_id);
     }
