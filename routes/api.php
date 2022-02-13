@@ -19,6 +19,7 @@ Route::get('/books', [BookController::class, 'get_all']);
 Route::get('/books/{author_id}', [BookController::class, 'get_author']);
 Route::get('/book/{book_id}', [BookController::class, 'get']);
 
-Route::get('/cart/{cart_token}', [CartController::class, 'get']);
+Route::get('/cart', [CartController::class, 'get']);
 Route::post('/cart', [CartController::class, 'add']);
-Route::post('/cart/{cart_token}', [CartController::class, 'add']);
+Route::put('/cart', [CartController::class, 'update']);
+Route::delete('/cart', [CartController::class, 'delete']);
